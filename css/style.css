@@ -174,8 +174,12 @@ footer{
     .item img{
         max-width: 50%;
     }
-    .redes a{
-        width: 120px;
+    footer{
+        height: auto;
+        padding: 1rem;
+    }
+    .redes{
+        flex-direction: column;
         
     }
 }
