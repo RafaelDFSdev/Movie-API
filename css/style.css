@@ -174,4 +174,8 @@ footer{
     .item img{
         max-width: 50%;
     }
+    .redes a{
+        width: 120px;
+        
+    }
 }
