@@ -23,13 +23,9 @@ const carregaLista = (json) => {
 
     // Verifica se json.Search está definido e é uma array
     if (!json.Search || !Array.isArray(json.Search)) {
-        if(contador < maximoElementos){
-        var altura2 = document.createElement('div');
+        let altura2 = document.createElement("div");
         altura2.style.height="100vh";
-        pagina.appendChild(altura2);
-        contador++;
-        }else{
-        }
+        lista.appendChild(altura2);
         return;
     };
 
@@ -52,9 +48,9 @@ const limparLista = () => {
     };
 };
 const Altura = () =>{
-   switch (true) {
-    case(pagina.style.height= "auto"):
-    pagina.style.height="100vh";
-    break;
- }
+    if(pagina.style.height= "100vh"){
+        pagina.style.height= "auto"
+    }else{
+        pagina.style.height= "100vh"
+    }
 };
