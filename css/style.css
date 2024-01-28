@@ -173,7 +173,14 @@ footer{
 .redes a img{
     width: 20%;
 }
-
+.NF{
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-family: 'Rubik Wet Paint', system-ui;
+    font-family: 'Ubuntu', sans-serif;
+}
 @media(max-width:999px) {
     .logo img{
         max-width: 80%;

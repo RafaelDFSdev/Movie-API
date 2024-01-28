@@ -24,6 +24,8 @@ const carregaLista = (json) => {
     // Verifica se json.Search está definido e é uma array
     if (!json.Search || !Array.isArray(json.Search)) {
         let altura2 = document.createElement("div");
+        altura2.classList.add("NF");
+        altura2.innerHTML = "<h3>MOVIE NOT FOUND</h3>"
         altura2.style.height="100vh";
         lista.appendChild(altura2);
         return;
