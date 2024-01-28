@@ -35,7 +35,14 @@ const carregaLista = (json) => {
         console.log(element);
 
         let item = document.createElement("div");
+        var larguraDaTela = window.innerWidth || document.documentElement.clientWidth;
         item.classList.add("item");
+        if (larguraDaTela <= 999) {
+            item.classList.add("animate__animated");
+            item.classList.add("animate__flipInY");
+        } else {
+        };
+
         item.innerHTML = `<img src="${element.Poster}" /><div class="text"><h2>${element.Title}</h2></div>`;
         lista.appendChild(item);
         setTimeout(() => {
