@@ -243,10 +243,10 @@ footer{
         
     }
     .Details{
-        width: 70vw;
+        width: 80vw;
     }
     .Details button{
-        padding: 5px;
+        padding: 8px;
         right: 1rem;
     }
     .DetailsText{
