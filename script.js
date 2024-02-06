@@ -4,6 +4,7 @@ const lista = document.querySelector("div.filmes");
 const pagina = document.querySelector("main");
 var contador = 0;
 var maximoElementos = 1;
+let divCriada = false;
 
 Pesquisar.onsubmit = (ev) =>{
     ev.preventDefault();
@@ -44,12 +45,54 @@ const carregaLista = (json) => {
         };
 
         item.innerHTML = `<img src="${element.Poster}" /><div class="text"><h2>${element.Title}</h2></div>`;
+
+        item.addEventListener('click', () =>{
+            Details(element.imdbID);
+        });
+
         lista.appendChild(item);
         setTimeout(() => {
             item.classList.add("show");
         }, 50);
     });
 };
+
+
+const Details = (imdbID) =>{
+    if(divCriada){
+        return;
+    };
+
+    fetch(`https://www.omdbapi.com/?i=${imdbID}&apikey=${apiKey}`)
+    .then(result=>result.json())
+    .then(json => {
+        console.log(json);
+            const DetailsDiv = document.createElement("div");
+            DetailsDiv.classList.add("Details");
+            DetailsDiv.innerHTML = `
+                <button id="CloseDetails">X</button>
+                <img src="${json.Poster}" alt="${json.Title} Poster"/>
+                <div class="DetailsText"
+                <h2>${json.Title}</h2>
+                <p>Diretor: ${json.Director}</hp>
+                <p>Ano: ${json.Year}</p>
+                <p>Nota: ${json.imdbRating}</p>
+                </div>
+            `;
+            pagina.appendChild(DetailsDiv);
+
+            setTimeout(() => {
+                DetailsDiv.classList.add("show");
+            }, 50);
+
+            const CloseButton = DetailsDiv.querySelector("#CloseDetails");
+            CloseButton.addEventListener ('click', ()=>{
+                pagina.removeChild(DetailsDiv);
+            });
+
+    });
+};
+
 const limparLista = () => {
     // Limpa os itens da lista removendo todos os filhos
     while (lista.firstChild) {

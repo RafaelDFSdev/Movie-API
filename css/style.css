@@ -114,10 +114,6 @@ form button:hover{
 .altura2{
     height: 100vh;
 }
-.item.show {
-    opacity: 1;
-    transform: translateY(0);
-}
 .item:hover{
     background-color: white;
     color: black;
@@ -173,6 +169,50 @@ footer{
 .redes a img{
     width: 20%;
 }
+.Details{
+    display: flex;
+    padding: 1rem;
+    position: fixed;
+    width: 30vw;
+    margin: 4rem 0;
+    left: 50%;
+    right: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-family: 'Rubik Wet Paint', system-ui;
+    font-family: 'Ubuntu', sans-serif;
+    opacity: 0;
+    border: 1px solid;
+}
+.show {
+    opacity: 1;
+    transition: 0.3s;
+}
+.Details img{
+    max-width: 50%;
+    left: 0;
+}
+.DetailsText{
+    display: flex;
+    justify-content: center;
+    margin: 0 0 0 4rem;
+    gap: 1rem;
+    flex-direction: column;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-family: 'Rubik Wet Paint', system-ui;
+    font-family: 'Ubuntu', sans-serif;
+}
+.Details button{
+    position: fixed;
+    right: 2rem;
+    top: 1rem;
+    cursor: pointer;
+    padding: 10px;
+    border: none;
+    background-color: brown;
+    color: white;
+}
 .NF{
     display: flex;
     justify-content: center;
@@ -201,5 +241,15 @@ footer{
     .redes{
         flex-direction: column;
         
+    }
+    .Details{
+        width: 70vw;
+    }
+    .Details button{
+        padding: 5px;
+        right: 1rem;
+    }
+    .DetailsText{
+        margin: 0 0 0 2rem;
     }
 }
