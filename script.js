@@ -34,7 +34,7 @@ const carregaLista = (json) => {
 
     json.Search.forEach(element => {
         console.log(element);
-
+        cleanDetails();
         let item = document.createElement("div");
         var larguraDaTela = window.innerWidth || document.documentElement.clientWidth;
         item.classList.add("item");
@@ -74,11 +74,12 @@ const Details = (imdbID) =>{
                 <img src="${json.Poster}" alt="${json.Title} Poster"/>
                 <div class="DetailsText"
                 <h2>${json.Title}</h2>
-                <p>Diretor: ${json.Director}</hp>
+                <p>Diretor: ${json.Director}</hp >
                 <p>Ano: ${json.Year}</p>
                 <p>Nota: ${json.imdbRating}</p>
                 </div>
             `;
+            cleanDetails();
             pagina.appendChild(DetailsDiv);
 
             setTimeout(() => {
@@ -91,6 +92,13 @@ const Details = (imdbID) =>{
             });
 
     });
+};
+
+const cleanDetails = () =>{
+    const DetailsDiv = pagina.querySelector(".Details");
+    if(DetailsDiv){
+        DetailsDiv.remove();
+    }
 };
 
 const limparLista = () => {
