@@ -1,22 +1,22 @@
 const Pesquisar = document.querySelector("form");
-const apiKey ="c388e102";
+const apiKey = "c388e102";
 const lista = document.querySelector("div.filmes");
-const pagina = document.querySelector("main");
+const overlayBackground = document.querySelector(".overlay-background");
 var contador = 0;
 var maximoElementos = 1;
 let divCriada = false;
 
-Pesquisar.onsubmit = (ev) =>{
+Pesquisar.onsubmit = (ev) => {
     ev.preventDefault();
     const pesquisa = ev.target.pesquisa.value;
-    if(pesquisa===""){
+    if (pesquisa === "") {
         alert("Preencha o Campo")
         return;
     }
     limparLista();
     Altura();
     fetch(`https://www.omdbapi.com/?s=${pesquisa}&apikey=${apiKey}`)
-        .then(result=>result.json())
+        .then(result => result.json())
         .then(json => carregaLista(json));
 };
 
@@ -27,7 +27,7 @@ const carregaLista = (json) => {
         let altura2 = document.createElement("div");
         altura2.classList.add("NF");
         altura2.innerHTML = "<h3>MOVIE NOT FOUND</h3>"
-        altura2.style.height="100vh";
+        altura2.style.height = "100vh";
         lista.appendChild(altura2);
         return;
     };
@@ -46,7 +46,7 @@ const carregaLista = (json) => {
 
         item.innerHTML = `<img src="${element.Poster}" /><div class="text"><h2>${element.Title}</h2></div>`;
 
-        item.addEventListener('click', () =>{
+        item.addEventListener('click', () => {
             Details(element.imdbID);
         });
 
@@ -58,15 +58,15 @@ const carregaLista = (json) => {
 };
 
 
-const Details = (imdbID) =>{
-    if(divCriada){
+const Details = (imdbID) => {
+    if (divCriada) {
         return;
     };
 
     fetch(`https://www.omdbapi.com/?i=${imdbID}&apikey=${apiKey}`)
-    .then(result=>result.json())
-    .then(json => {
-        console.log(json);
+        .then(result => result.json())
+        .then(json => {
+            console.log(json);
             const DetailsDiv = document.createElement("div");
             DetailsDiv.classList.add("Details");
             DetailsDiv.innerHTML = `
@@ -80,23 +80,25 @@ const Details = (imdbID) =>{
                 </div>
             `;
             cleanDetails();
-            pagina.appendChild(DetailsDiv);
+            overlayBackground.appendChild(DetailsDiv);
 
             setTimeout(() => {
                 DetailsDiv.classList.add("show");
+                overlayBackground.classList.add("visible");
             }, 50);
 
             const CloseButton = DetailsDiv.querySelector("#CloseDetails");
-            CloseButton.addEventListener ('click', ()=>{
-                pagina.removeChild(DetailsDiv);
+            CloseButton.addEventListener('click', () => {
+                overlayBackground.removeChild(DetailsDiv);
+                overlayBackground.classList.remove("visible");
             });
 
-    });
+        });
 };
 
-const cleanDetails = () =>{
-    const DetailsDiv = pagina.querySelector(".Details");
-    if(DetailsDiv){
+const cleanDetails = () => {
+    const DetailsDiv = overlayBackground.querySelector(".Details");
+    if (DetailsDiv) {
         DetailsDiv.remove();
     }
 };
@@ -107,10 +109,9 @@ const limparLista = () => {
         lista.removeChild(lista.firstChild);
     };
 };
-const Altura = () =>{
-    if(pagina.style.height= "100vh"){
-        pagina.style.height= "auto"
-    }else{
-        pagina.style.height= "100vh"
+const Altura = () => {
+    if (overlayBackground.style.height = "100vh") {
+    } else {
+        overlayBackground.style.height = "100vh"
     }
 };
