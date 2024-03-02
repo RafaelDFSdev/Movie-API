@@ -1,15 +1,17 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-header{
-    background-color:darkred;
+
+header {
+    background-color: darkred;
     height: 6rem;
     display: flex;
     align-items: center;
 }
-.logo{
+
+.logo {
     display: flex;
     height: 4rem;
     width: 10vw;
@@ -21,47 +23,55 @@ header{
     font-family: 'Rubik Wet Paint', system-ui;
     font-family: 'Ubuntu', sans-serif;
 }
-.logo img{
+
+.logo img {
     max-width: 30%;
 }
-main{
+
+main {
     display: flex;
     flex-direction: column;
     flex: 1;
     background-color: rgb(34, 32, 32);
     height: 100vh;
 }
-hr{
+
+hr {
     border: 1px solid white;
     margin: 0 300px;
     height: 2px;
-    
+
 }
-section{
+
+section {
     margin: 0 auto;
     background-color: rgb(34, 32, 32);
 }
-section h1{
+
+section h1 {
     margin: 4rem auto;
     color: white;
     font-family: 'Roboto Condensed', sans-serif;
     font-family: 'Rubik Wet Paint', system-ui;
     font-family: 'Ubuntu', sans-serif;
 }
-#initial{
+
+#initial {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-form{
- height: 3rem;
- width: 30vw;
- margin: 4rem 0;
- display: flex;
- justify-content: center;   
+
+form {
+    height: 3rem;
+    width: 30vw;
+    margin: 4rem 0;
+    display: flex;
+    justify-content: center;
 }
-form input{
+
+form input {
     flex: 1;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
@@ -69,7 +79,8 @@ form input{
     padding: 5px;
     border: none;
 }
-form button{
+
+form button {
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
     cursor: pointer;
@@ -80,16 +91,19 @@ form button{
     border: none;
     width: 100px;
 }
-form button:hover{
+
+form button:hover {
     background-color: black;
     transition: 0.3s;
 }
-.filmes{
+
+.filmes {
     display: flex;
     flex-wrap: wrap;
-    margin:  4rem auto;
+    margin: 4rem auto;
 }
-.item{
+
+.item {
     display: flex;
     flex-direction: column;
     height: auto;
@@ -111,18 +125,22 @@ form button:hover{
     transform: translateY(20px);
     transition: opacity 0.3s, transform 0.3s;
 }
-.altura2{
+
+.altura2 {
     height: 100vh;
 }
-.item:hover{
+
+.item:hover {
     background-color: white;
     color: black;
     transition: 0.3s;
 }
-.item img{
+
+.item img {
     max-width: 30%;
 }
-.text{
+
+.text {
     width: 100%;
     height: 7rem;
     display: flex;
@@ -130,7 +148,8 @@ form button:hover{
     align-items: center;
 
 }
-footer{
+
+footer {
     height: 6rem;
     background-color: darkred;
     color: white;
@@ -143,11 +162,13 @@ footer{
     gap: 1rem;
     justify-content: center;
 }
-.redes{
+
+.redes {
     display: flex;
     gap: 1rem;
 }
-.redes a{
+
+.redes a {
     color: white;
     text-decoration: none;
     border: 1px solid;
@@ -159,17 +180,21 @@ footer{
     padding: 5px;
     gap: 5px;
 }
-.redes a:hover{
+
+.redes a:hover {
     color: black;
 }
-.redes a:active{
+
+.redes a:active {
     width: 100px;
     transition: 0.3s;
 }
-.redes a img{
+
+.redes a img {
     width: 20%;
 }
-.Details{
+
+.Details {
     display: flex;
     padding: 1rem;
     position: fixed;
@@ -186,15 +211,18 @@ footer{
     opacity: 0;
     border: 1px solid;
 }
+
 .show {
     opacity: 1;
     transition: 0.3s;
 }
-.Details img{
+
+.Details img {
     max-width: 50%;
     left: 0;
 }
-.DetailsText{
+
+.DetailsText {
     display: flex;
     justify-content: center;
     margin: 0 0 0 4rem;
@@ -204,7 +232,8 @@ footer{
     font-family: 'Rubik Wet Paint', system-ui;
     font-family: 'Ubuntu', sans-serif;
 }
-.Details button{
+
+.Details button {
     position: fixed;
     right: 2rem;
     top: 1rem;
@@ -214,7 +243,8 @@ footer{
     background-color: brown;
     color: white;
 }
-.NF{
+
+.NF {
     display: flex;
     justify-content: center;
     color: white;
@@ -222,35 +252,58 @@ footer{
     font-family: 'Rubik Wet Paint', system-ui;
     font-family: 'Ubuntu', sans-serif;
 }
+
+.overlay-background {
+    display: none;
+}
+
+.overlay-background.visible {
+    z-index: 99;
+    width: 100%;
+    height: 100%;
+    background-color: #2a2a2ad9;
+    position: fixed;
+    top: 0;
+    display: block !important;
+}
+
 @media(max-width:999px) {
-    .logo img{
+    .logo img {
         max-width: 80%;
     }
-    form{
+
+    form {
         width: 70vw;
     }
-    .item{
-        width: 40%;    
+
+    .item {
+        width: 40%;
     }
-    .item img{
+
+    .item img {
         max-width: 80%;
     }
-    footer{
+
+    footer {
         height: auto;
         padding: 1rem;
     }
-    .redes{
+
+    .redes {
         flex-direction: column;
-        
+
     }
-    .Details{
+
+    .Details {
         width: 80vw;
     }
-    .Details button{
+
+    .Details button {
         padding: 8px;
         right: 1rem;
     }
-    .DetailsText{
+
+    .DetailsText {
         margin: 0 0 0 1rem;
         gap: 0;
     }
