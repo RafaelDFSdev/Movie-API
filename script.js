@@ -15,7 +15,7 @@ Pesquisar.onsubmit = (ev) => {
     }
     limparLista();
     Altura();
-    fetch(`https://www.omdbapi.com/?s=${pesquisa}&apikey=${apiKey}`)
+    fetch(`https://www.omdbapi.com/?s=${encodeURIComponent(pesquisa)}&apikey=${apiKey}`)
         .then(result => result.json())
         .then(json => carregaLista(json));
 };
