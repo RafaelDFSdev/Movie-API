@@ -8,7 +8,7 @@ let divCriada = false;
 
 Pesquisar.onsubmit = (ev) => {
     ev.preventDefault();
-    const pesquisa = ev.target.pesquisa.value;
+    const pesquisa = ev.target.pesquisa.value.trim();
     if (pesquisa === "") {
         alert("Preencha o Campo")
         return;
